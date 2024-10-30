@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enzzz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Light background for a minimal look */
+            color: #333333; /* Dark text for contrast */
+            margin: 0;
+            height: 100vh;
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            width: 220px;
+            background-color: #f0f0f0; /* Soft light gray */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabs {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tab {
+            padding: 12px;
+            cursor: pointer;
+            background-color: #e0e0e0; /* Soft gray background */
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            transition: background-color 0.4s ease, transform 0.2s ease;
+        }
+
+        .tab:hover {
+            background-color: #d0d0d0; /* Darker gray on hover */
+        }
+
+        .tab.active {
+            background-color: #b0b0b0; /* Active tab color */
+            color: white;
+        }
+
+        main {
+            flex: 1;
+            overflow-y: hidden;
+            padding: 20px;
+            position: relative;
+        }
+
+        .content {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            border-radius: 12px;
+            background: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .content.active {
+            opacity: 1; /* Fade in the active content */
+            z-index: 1; /* Ensure active content is on top */
+        }
+
+        /* Media queries for mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack nav and main vertically */
+            }
+
+            nav {
+                width: 100%; /* Full width for nav */
+                padding: 10px; /* Reduced padding */
+            }
+
+            .tab {
+                padding: 10px; /* Adjust padding for tabs */
+                margin-bottom: 5px; /* Reduced margin */
+            }
+
+            main {
+                padding: 10px; /* Adjust padding for main content */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul class="tabs" role="tablist">
+                <li class="tab active" role="tab" aria-selected="true" data-tab="general" onclick="switchTab(event)">
+                    <i class="fas fa-home"></i> General
+                </li>
+                <li class="tab" role="tab" aria-selected="false" data-tab="about" onclick="switchTab(event)">
+                    <i class="fas fa-user"></i> About Me
+                </li>
+                <li class="tab" role="tab" aria-selected="false" data-tab="pinboard" onclick="switchTab(event)">
+                    <i class="fas fa-clock"></i> Timeline
+                </li>
+                <li class="tab" role="tab" aria-selected="false" data-tab="code" onclick="switchTab(event)">
+                    <i class="fas fa-code"></i> Code
+                </li>
+                <li class="tab" role="tab" aria-selected="false" data-tab="contact" onclick="switchTab(event)">
+                    <i class="fas fa-envelope"></i> Contact
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <div class="content active" id="general" role="tabpanel">
+                <h2>Welcome to my website!</h2>
+                <p>My name is Enzo and I am happy you clicked on my website.</p>
+                It was about time I make a website displaying all the cool stuff I made over the years lol.
+                <p>The website is still in pre-release testing so it will be updated more over time.</p>
+            </div>
+            <div class="content" id="about" role="tabpanel">
+                <div class="profile-container">
+                    <img id="profile-picture" src="profile_picture.jpg" alt="My Profile Picture" style="border-radius: 50%; width: 100px;">
+                    <div class="profile-info">
+                        <h2>About Me</h2>
+                        <p>Hey, my name is Enzo, I am 16 years old and currently live in Lebanon.</p>
+                        <p>Right now, I am a student in a private high school.</p>
+                        <p>I really love to code and build things from scratch. I started coding at a very young age.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="pinboard" role="tabpanel">
+                <div class="timeline">
+                    <div class="timeline-item" style="--delay: 0s;">
+                        <div class="timeline-content">
+                            <h3>2020</h3>
+                            <p>My first time learning how to code with C++.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" style="--delay: 0.1s;">
+                        <div class="timeline-content">
+                            <h3>2021</h3>
+                            <p>I learned how to build websites with HTML, CSS, and JavaScript.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" style="--delay: 0.2s;">
+                        <div class="timeline-content">
+                            <h3>2022</h3>
+                            <p>I learned how machines work by learning binary.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" style="--delay: 0.3s;">
+                        <div class="timeline-content">
+                            <h3>2023</h3>
+                            <p>I learned how a database works and started learning SQLmap and MariaDB.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" style="--delay: 0.4s;">
+                        <div class="timeline-content">
+                            <h3>2024</h3>
+                            <p>I learned how to build servers from scratch using C# and Assembly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="code" role="tabpanel">
+                <h2>Check out my projects on GitHub.</h2>
+                <p>Some of my Github Archives:</p>
+                <p><a href="https://github.com/DadirtTheOfficial/FreeWinActivKey" target="_blank">Free Windows 10 Activation Key</a></p>
+                <p><a href="https://github.com/DaDirtTheOfficial/FreeOfficeActivKey" target="_blank">Free Office Activation Key</a></p>
+                <p><a href="https://github.com/DaDirtTheOfficial/NeuralNetwork" target="_blank">Neural Network template</a></p>
+            </div>
+            <div class="content" id="contact" role="tabpanel">
+                <p>All My Social Media</p>
+                <p>
+                    <a href="https://www.instagram.com/@enzzz.h">My Instagram</a>
+                </p>
+                <p>
+                    <a href="https://github.com/enzzzh">My GitHub</a>
+                </p>
+            </div>
+        </main>
+    </div>
+    <script>
+        function switchTab(event) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.content');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+            contents.forEach(content => {
+                content.classList.remove('active');
+                content.style.opacity = '0'; // Start fading out
+            });
+
+            const selectedTab = event.currentTarget;
+            selectedTab.classList.add('active');
+            selectedTab.setAttribute('aria-selected', 'true');
+            const contentId = selectedTab.getAttribute('data-tab');
+            const activeContent = document.getElementById(contentId);
+            activeContent.classList.add('active');
+            setTimeout(() => {
+                activeContent.style.opacity = '1'; // Fade in the active content
+            }, 50); // Small timeout to allow the fade out to complete
+        }
+    </script>
+</body>
+</html>
