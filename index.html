@@ -6,216 +6,414 @@
     <title>Enzzz</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff; /* Light background for a minimal look */
-            color: #333333; /* Dark text for contrast */
+:root {
+    --primary-color: #FF9F9F;         /* Soft coral pink */
+    --bg-color: #2B2B2B;             /* Dark charcoal */
+    --text-color: #B8B8B8;           /* Light gray */
+    --heading-color: #F5F5F5;        /* Off-white */
+    --nav-bg: rgba(43, 43, 43, 0.85); /* Dark charcoal with opacity */
+    --accent-color: #E8BCB9;         /* Dusty rose */
+    --hover-bg: rgba(255, 159, 159, 0.1); /* Soft coral pink with opacity */
+}
+
+/* Add these custom scrollbar styles */
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) var(--bg-color);
+}
+
+/* Update the tab hover and active states */
+.tab:hover, .tab.active {
+    background-color: var(--hover-bg);
+    color: var(--primary-color);
+}
+
+/* Update the timeline item background */
+.timeline-item {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Update links color */
+a {
+    color: var(--accent-color);
+}
+
+a:hover {
+    color: var(--primary-color);
+    opacity: 1;
+}
+        * {
             margin: 0;
-            height: 100vh;
-            transition: background-color 0.3s ease;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Calibre', 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
             display: flex;
-            height: 100%;
         }
 
+        /* Navigation Styles */
         nav {
-            display: flex;
-            flex-direction: column;
-            width: 220px;
-            background-color: #f0f0f0; /* Soft light gray */
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            padding: 2rem;
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
         }
 
         .tabs {
             list-style: none;
-            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .tab {
-            padding: 12px;
+            padding: 0.8rem 1rem;
             cursor: pointer;
-            background-color: #e0e0e0; /* Soft gray background */
-            border: none;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            transition: background-color 0.4s ease, transform 0.2s ease;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .tab:hover {
-            background-color: #d0d0d0; /* Darker gray on hover */
+        .tab:hover, .tab.active {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--primary-color);
         }
 
-        .tab.active {
-            background-color: #b0b0b0; /* Active tab color */
-            color: white;
+        .tab i {
+            width: 20px;
         }
 
+        /* Main Content Styles */
         main {
             flex: 1;
-            overflow-y: hidden;
-            padding: 20px;
-            position: relative;
+            padding: 2rem;
         }
 
         .content {
+            display: none;
             opacity: 0;
-            transition: opacity 0.4s ease;
-            position: absolute;
-            width: 100%;
-            top: 0;
-            left: 0;
-            padding: 20px;
-            border-radius: 12px;
-            background: #ffffff;
-            margin-bottom: 20px;
+            transition: opacity 0.3s ease;
         }
 
         .content.active {
-            opacity: 1; /* Fade in the active content */
-            z-index: 1; /* Ensure active content is on top */
+            display: block;
+            opacity: 1;
         }
 
-        /* Media queries for mobile responsiveness */
+        h2 {
+            color: var(--heading-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .timeline-item {
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            animation: fadeIn 0.5s ease forwards;
+            animation-delay: var(--delay);
+        }
+
+        /* Links Styles */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        /* Profile Styles */
+        .profile-container {
+            display: flex;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        #profile-picture {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column; /* Stack nav and main vertically */
+                flex-direction: column;
             }
 
             nav {
-                width: 100%; /* Full width for nav */
-                padding: 10px; /* Reduced padding */
+                width: 100%;
+                position: static;
+                padding: 1rem 0;
             }
 
-            .tab {
-                padding: 10px; /* Adjust padding for tabs */
-                margin-bottom: 5px; /* Reduced margin */
+            .tabs {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 1rem;
             }
 
-            main {
-                padding: 10px; /* Adjust padding for main content */
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <nav>
-            <ul class="tabs" role="tablist">
-                <li class="tab active" role="tab" aria-selected="true" data-tab="general" onclick="switchTab(event)">
+            <ul class="tabs">
+                <li class="tab active" data-tab="general">
                     <i class="fas fa-home"></i> General
                 </li>
-                <li class="tab" role="tab" aria-selected="false" data-tab="about" onclick="switchTab(event)">
+                <li class="tab" data-tab="about">
                     <i class="fas fa-user"></i> About Me
                 </li>
-                <li class="tab" role="tab" aria-selected="false" data-tab="pinboard" onclick="switchTab(event)">
+                <li class="tab" data-tab="pinboard">
                     <i class="fas fa-clock"></i> Timeline
                 </li>
-                <li class="tab" role="tab" aria-selected="false" data-tab="code" onclick="switchTab(event)">
+                <li class="tab" data-tab="code">
                     <i class="fas fa-code"></i> Code
                 </li>
-                <li class="tab" role="tab" aria-selected="false" data-tab="contact" onclick="switchTab(event)">
+                <li class="tab" data-tab="contact">
                     <i class="fas fa-envelope"></i> Contact
                 </li>
             </ul>
         </nav>
+
         <main>
-            <div class="content active" id="general" role="tabpanel">
-                <h2>Welcome to my website!</h2>
+            <div id="general" class="content active">
+                <h2>Welcome!</h2>
                 <p>My name is Enzo and I am happy you clicked on my website.</p>
-                It was about time I make a website displaying all the cool stuff I made over the years lol.
-                <p>The website is still in pre-release testing so it will be updated more over time.</p>
+                <p>This website showcases all the cool stuff I've made over the years.</p>
+                <p>Note: This website is still in pre-release testing and will be updated over time.</p>
             </div>
-            <div class="content" id="about" role="tabpanel">
+
+            <div id="about" class="content">
                 <div class="profile-container">
-                    <img id="profile-picture" src="profile_picture.jpg" alt="My Profile Picture" style="border-radius: 50%; width: 100px;">
-                    <div class="profile-info">
+                    <img id="profile-picture" src="profile_picture.jpg" alt="Profile Picture">
+                    <div>
                         <h2>About Me</h2>
-                        <p>Hey, my name is Enzo, I am 16 years old and currently live in Lebanon.</p>
-                        <p>Right now, I am a student in a private high school.</p>
-                        <p>I really love to code and build things from scratch. I started coding at a very young age.</p>
+                        <p>Hey, I'm Enzo, a 16-year-old developer from Lebanon.</p>
+                        <p>Currently a student in a private high school.</p>
+                        <p>I'm passionate about coding and building things from scratch.</p>
                     </div>
                 </div>
             </div>
-            <div class="content" id="pinboard" role="tabpanel">
+
+            <div id="pinboard" class="content">
+                <h2>My Journey</h2>
                 <div class="timeline">
-                    <div class="timeline-item" style="--delay: 0s;">
-                        <div class="timeline-content">
-                            <h3>2020</h3>
-                            <p>My first time learning how to code with C++.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" style="--delay: 0.1s;">
-                        <div class="timeline-content">
-                            <h3>2021</h3>
-                            <p>I learned how to build websites with HTML, CSS, and JavaScript.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" style="--delay: 0.2s;">
-                        <div class="timeline-content">
-                            <h3>2022</h3>
-                            <p>I learned how machines work by learning binary.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" style="--delay: 0.3s;">
-                        <div class="timeline-content">
-                            <h3>2023</h3>
-                            <p>I learned how a database works and started learning SQLmap and MariaDB.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" style="--delay: 0.4s;">
-                        <div class="timeline-content">
-                            <h3>2024</h3>
-                            <p>I learned how to build servers from scratch using C# and Assembly.</p>
-                        </div>
-                    </div>
+                    <!-- Timeline items here -->
                 </div>
             </div>
-            <div class="content" id="code" role="tabpanel">
-                <h2>Check out my projects on GitHub.</h2>
-                <p>Some of my Github Archives:</p>
-                <p><a href="https://github.com/DadirtTheOfficial/FreeWinActivKey" target="_blank">Free Windows 10 Activation Key</a></p>
-                <p><a href="https://github.com/DaDirtTheOfficial/FreeOfficeActivKey" target="_blank">Free Office Activation Key</a></p>
-                <p><a href="https://github.com/DaDirtTheOfficial/NeuralNetwork" target="_blank">Neural Network template</a></p>
+
+            <div id="code" class="content">
+                <h2>My Projects</h2>
+                <p>Check out my work on GitHub:</p>
+                <ul>
+                    <li><a href="https://github.com/enzzzh/FreeWinActivKey">Windows Activation Tool</a></li>
+                    <li><a href="https://github.com/enzzzh/FreeOfficeActivKey">Office Activation Tool</a></li>
+                    <li><a href="https://github.com/enzzzh/NeuralNetwork">Neural Network Template</a></li>
+                </ul>
             </div>
-            <div class="content" id="contact" role="tabpanel">
-                <p>All My Social Media</p>
-                <p>
-                    <a href="https://www.instagram.com/@enzzz.h">My Instagram</a>
-                </p>
-                <p>
-                    <a href="https://github.com/enzzzh">My GitHub</a>
-                </p>
+
+            <div id="contact" class="content">
+                <h2>Get in Touch</h2>
+                <p>Find me on:</p>
+                <ul>
+                    <li><a href="https://instagram.com/@enzzz.h">Instagram</a></li>
+                    <li><a href="https://github.com/enzzzh">GitHub</a></li>
+                </ul>
             </div>
         </main>
     </div>
+
     <script>
-        function switchTab(event) {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all tabs and content sections
             const tabs = document.querySelectorAll('.tab');
             const contents = document.querySelectorAll('.content');
-
+    
+            // Function to switch tabs
+            function switchTab(e) {
+                // Remove active class from all tabs and contents
+                tabs.forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                });
+    
+                // Add active class to clicked tab
+                const clickedTab = e.currentTarget;
+                clickedTab.classList.add('active');
+    
+                // Show corresponding content
+                const tabId = clickedTab.getAttribute('data-tab');
+                const activeContent = document.getElementById(tabId);
+                if (activeContent) {
+                    activeContent.classList.add('active');
+                }
+    
+                // Add smooth scroll for mobile
+                if (window.innerWidth <= 768) {
+                    activeContent.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+    
+            // Add click event listeners to all tabs
             tabs.forEach(tab => {
-                tab.classList.remove('active');
-                tab.setAttribute('aria-selected', 'false');
+                tab.addEventListener('click', switchTab);
             });
-            contents.forEach(content => {
-                content.classList.remove('active');
-                content.style.opacity = '0'; // Start fading out
+    
+            // Handle URL hash changes
+            function handleHash() {
+                const hash = window.location.hash.slice(1);
+                if (hash) {
+                    const tab = document.querySelector(`[data-tab="${hash}"]`);
+                    if (tab) {
+                        tab.click();
+                    }
+                }
+            }
+    
+            // Listen for hash changes
+            window.addEventListener('hashchange', handleHash);
+    
+            // Handle initial hash
+            if (window.location.hash) {
+                handleHash();
+            }
+    
+            // Add hover animations
+            tabs.forEach(tab => {
+                tab.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                });
+    
+                tab.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
             });
-
-            const selectedTab = event.currentTarget;
-            selectedTab.classList.add('active');
-            selectedTab.setAttribute('aria-selected', 'true');
-            const contentId = selectedTab.getAttribute('data-tab');
-            const activeContent = document.getElementById(contentId);
-            activeContent.classList.add('active');
+    
+            // Optional: Add scroll spy functionality
+            function updateActiveTabOnScroll() {
+                const scrollPosition = window.scrollY;
+    
+                contents.forEach(content => {
+                    const section = content.getBoundingClientRect();
+                    
+                    if (section.top <= 150 && section.bottom >= 150) {
+                        const tabId = content.getAttribute('id');
+                        
+                        tabs.forEach(tab => {
+                            tab.classList.remove('active');
+                            if (tab.getAttribute('data-tab') === tabId) {
+                                tab.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+    
+            // Optional: Enable scroll spy on mobile only
+            if (window.innerWidth <= 768) {
+                window.addEventListener('scroll', updateActiveTabOnScroll);
+            }
+    
+            // Add loading animation
+            document.body.classList.add('loaded');
+        });
+    
+        // Optional: Add transition animation between tabs
+        function animateContentTransition(oldContent, newContent) {
+            oldContent.style.opacity = '0';
+            oldContent.style.transform = 'translateY(-10px)';
+            
             setTimeout(() => {
-                activeContent.style.opacity = '1'; // Fade in the active content
-            }, 50); // Small timeout to allow the fade out to complete
+                oldContent.style.display = 'none';
+                newContent.style.display = 'block';
+                
+                setTimeout(() => {
+                    newContent.style.opacity = '1';
+                    newContent.style.transform = 'translateY(0)';
+                }, 50);
+            }, 300);
         }
+    
+        // Optional: Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const activeTab = document.querySelector('.tab.active');
+            if (!activeTab) return;
+    
+            const tabs = Array.from(document.querySelectorAll('.tab'));
+            const currentIndex = tabs.indexOf(activeTab);
+    
+            if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                const prevTab = tabs[currentIndex - 1];
+                if (prevTab) prevTab.click();
+            } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                const nextTab = tabs[currentIndex + 1];
+                if (nextTab) nextTab.click();
+            }
+        });
     </script>
+    </body>
+    </html>
 </body>
 </html>
