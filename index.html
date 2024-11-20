@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
 :root {
-    --primary-color: #FF9F9F;       
-    --bg-color: #2B2B2B;            
-    --text-color: #B8B8B8;           
+    --primary-color: #7e7e7e;       
+    --bg-color: #111111;            
+    --text-color: #585858;           
     --heading-color: #F5F5F5;        
-    --nav-bg: rgba(43, 43, 43, 0.85);
-    --accent-color: #E8BCB9;         
-    --hover-bg: rgba(255, 159, 159, 0.1); 
+    --nav-bg: rgba(110, 110, 110, 0.85);
+    --accent-color: #585858;         
+    --hover-bg: rgba(58, 58, 58, 0.1); 
 }
 
 ::-webkit-scrollbar {
@@ -105,7 +105,7 @@ a:hover {
         }
 
         .tab:hover, .tab.active {
-            background-color: rgba(100, 255, 218, 0.1);
+            background-color: rgba(230, 230, 230, 0.1);
             color: var(--primary-color);
         }
 
@@ -117,6 +117,8 @@ a:hover {
         main {
             flex: 1;
             padding: 2rem;
+            animation: var(--hover-bg) ease-in-out;
+            animation-duration: 2s;
         }
 
         .content {
@@ -140,7 +142,7 @@ a:hover {
 .timeline {
     display: flex;
     flex-direction: column;
-    gap: 4.5rem; /* This sets the space between each timeline item */
+    gap: 4.5rem; 
 }
 
 .timeline-item {
@@ -152,8 +154,7 @@ a:hover {
 }
 
 .timeline-content {
-    margin-left: 60px; /* Increased space for the year */
-    /* You can adjust this value to your liking */
+    margin-left: 60px;
 }
 
         /* Links Styles */
@@ -175,10 +176,10 @@ a:hover {
         }
 
         #profile-picture {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 50%;
+            border-radius: 35%;
         }
 
         @media (max-width: 768px) {
@@ -199,20 +200,20 @@ a:hover {
             }
 
             .profile-container {
-                flex-direction: column;
+                flex-direction: row-reverse;
                 align-items: center;
                 text-align: center;
             }
         }
         .timeline {
     position: relative;
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 .timeline-item {
     position: relative;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(71, 71, 71, 0.1);
     border-radius: 8px;
     margin-bottom: 20px;
     animation: fadeIn 0.5s ease forwards;
@@ -232,7 +233,7 @@ a:hover {
 }
 
 .timeline-content {
-    margin-left: 40px; /* Space for the year */
+    margin-left: 40px; 
 }
 
 @media (max-width: 768px) {
@@ -243,7 +244,7 @@ a:hover {
     }
     
     .timeline-content {
-        margin-left: 0; /* Reset margin for smaller screens */
+        margin-left: 0; 
     }
 }
 
@@ -291,6 +292,7 @@ a:hover {
                         <p>Hey, I'm Enzo, a 16-year-old developer from Lebanon.</p>
                         <p>Currently a student in a private high school.</p>
                         <p>I'm passionate about coding and building things from ground .</p>
+
                     </div>
                 </div>
             </div>
@@ -387,10 +389,10 @@ a:hover {
             if (window.location.hash) {
                 handleHash();
             }
-    
+
             tabs.forEach(tab => {
                 tab.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateX(5px)';
+                    this.style.transform = 'translateX(15px)';
                 });
     
                 tab.addEventListener('mouseleave', function() {
@@ -426,15 +428,15 @@ a:hover {
     
         function animateContentTransition(oldContent, newContent) {
             oldContent.style.opacity = '0';
-            oldContent.style.transform = 'translateY(-10px)';
+            oldContent.style.transform = 'translateY(-15px)';
             
             setTimeout(() => {
                 oldContent.style.display = 'none';
                 newContent.style.display = 'block';
                 
                 setTimeout(() => {
-                    newContent.style.opacity = '1';
-                    newContent.style.transform = 'translateY(0)';
+                    newContent.style.opacity = '0.5';
+                    newContent.style.transform = 'translateY(10)';
                 }, 50);
             }, 300);
         }
