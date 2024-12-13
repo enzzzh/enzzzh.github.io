@@ -3,60 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enzzz's Website</title>
+    <title>Enzzz</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-:root {
-    --primary-color: #7e7e7e;       
-    --bg-color: #111111;            
-    --text-color: #d4d4d4;           
-    --heading-color: #F5F5F5;        
-    --nav-bg: rgba(110, 110, 110, 0.85);
-    --accent-color: #868686;         
-    --hover-bg: rgb(255, 255, 255); 
-}
+        :root {
+            --primary-color: #dadada;
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --heading-color: #F5F5F5;
+            --nav-bg: rgba(110, 110, 110, 0.85);
+            --accent-color: #7b7b7b;
+            --hover-bg: rgba(236, 236, 236, 0.1);
+        }
 
-::-webkit-scrollbar {
-    width: 8px;
-}
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
 
-::-webkit-scrollbar-track {
-    background: var(--bg-color);
-}
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
 
-::-webkit-scrollbar-thumb {
-    background: var(--accent-color);
-    border-radius: 4px;
-}
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-color);
-}
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
 
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent-color) var(--bg-color);
-}
-
-.tab:hover, .tab.active {
-    background-color: var(--hover-bg);
-    color: var(--primary-color);
-}
-
-.timeline-item {
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-a {
-    color: var(--accent-color);
-}
-
-a:hover {
-    color: var(--primary-color);
-    opacity: 1;
-}
         * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) var(--bg-color);
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -67,6 +46,7 @@ a:hover {
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            transition: background-color 0.3s ease;
         }
 
         .container {
@@ -75,6 +55,7 @@ a:hover {
             padding: 2rem;
             min-height: 100vh;
             display: flex;
+            transition: all 0.3s ease;
         }
 
         /* Navigation Styles */
@@ -84,6 +65,7 @@ a:hover {
             position: sticky;
             top: 2rem;
             height: fit-content;
+            transition: all 0.3s ease;
         }
 
         .tabs {
@@ -102,11 +84,29 @@ a:hover {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .tab:hover::before {
+            left: 100%;
         }
 
         .tab:hover, .tab.active {
-            background-color: rgba(230, 230, 230, 0.1);
+            background-color: var(--hover-bg);
             color: var(--primary-color);
+            transform: translateX(5px);
         }
 
         .tab i {
@@ -117,19 +117,20 @@ a:hover {
         main {
             flex: 1;
             padding: 2rem;
-            animation: var(--hover-bg) ease-in-out;
-            animation-duration: 2s;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
         .content {
             display: none;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(20px);
         }
 
         .content.active {
             display: block;
             opacity: 1;
+            transform: translateY(0);
         }
 
         h2 {
@@ -138,24 +139,71 @@ a:hover {
             font-size: 2rem;
         }
 
-       /* Timeline Styles */
-.timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 4.5rem; 
-}
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
 
-.timeline-item {
-    padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    animation: fadeIn 0.5s ease forwards;
-    animation-delay: var(--delay);
-}
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+            transform: translateX(-50%);
+        }
 
-.timeline-content {
-    margin-left: 60px;
-}
+        .timeline-item {
+            position: relative;
+            padding: 20px;
+            background-color: rgba(71, 71, 71, 0.1);
+            border-radius: 8px;
+            margin-bottom: 40px;
+            width: calc(50% - 30px);
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            float: left;
+            clear: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            float: right;
+            clear: left;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -40px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -40px;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content {
+            margin-left: 0;
+        }
 
         /* Links Styles */
         a {
@@ -179,9 +227,15 @@ a:hover {
             width: 200px;
             height: 200px;
             object-fit: cover;
-            border-radius: 35%;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
         }
 
+        #profile-picture:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -199,58 +253,42 @@ a:hover {
                 padding-bottom: 1rem;
             }
 
+            .tab {
+                flex: 0 0 auto;
+            }
+
             .profile-container {
-                flex-direction: row-reverse;
+                flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                float: none;
+                clear: both;
+                margin-left: 40px;
+            }
+
+            .timeline-item::before {
+                left: -40px;
+            }
         }
-        .timeline {
-    position: relative;
-    padding: 30px 0;
-}
 
-.timeline-item {
-    position: relative;
-    padding: 20px;
-    background-color: rgba(71, 71, 71, 0.1);
-    border-radius: 8px;
-    margin-bottom: 20px;
-    animation: fadeIn 0.5s ease forwards;
-}
-
-.timeline-year {
-    position: absolute;
-    left: -60px;
-    top: 20px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    background-color: var(--bg-color);
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.timeline-content {
-    margin-left: 40px; 
-}
-
-@media (max-width: 768px) {
-    .timeline-year {
-        left: 0;
-        top: auto;
-        margin-bottom: 10px;
-    }
-    
-    .timeline-content {
-        margin-left: 0; 
-    }
-}
-
+        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -280,8 +318,8 @@ a:hover {
             <div id="general" class="content active">
                 <h2>Welcome!</h2> 
                 <p>This is my cozy little website.</p>
-               <p>In here I will showcase all my abilities in coding </p> 
-               <br><h2>NOTE</h2><p> It is still in developpement and might undergo to major updates so stay tuned :)</p>
+                <p>In here I will showcase all my abilities in coding </p> 
+                <br><h2>NOTE</h2><p> It is still in development and might undergo major updates so stay tuned :)</p>
             </div>
 
             <div id="about" class="content">
@@ -289,10 +327,9 @@ a:hover {
                     <img id="profile-picture" src="profile_picture.jpg" alt="Profile Picture">
                     <div>
                         <h2>About Me</h2>
-                        <p>Hey, I'm Enzo, </p>
-                        <p>Developer from Lebanon.</p>
-                        <p>Currently a student .</p>
-
+                        <p>Hey, I'm Enzo, a 16-year-old developer from Lebanon.</p>
+                        <p>Currently a student in a private high school.</p>
+                        <p>I'm passionate about coding and building things from ground up.</p>
                     </div>
                 </div>
             </div>
@@ -302,22 +339,26 @@ a:hover {
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-content">
-                            <h2>2021</h2><p>First year I started coding with C++</p>
+                            <h2 class="timeline-year">2021</h2>
+                            <p>First year I started coding with C++</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-content">
-                            <h2>2022</h2><p>I was coding websites with HTML, CSS, and JS</p>
+                            <h2 class="timeline-year">2022</h2>
+                            <p>I was coding websites with HTML, CSS, and JS</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-content">
-                            <h2>2023</h2><p>I learned about Databases and how to create one using MariaDB and MongoDB</p>
+                            <h2 class="timeline-year">2023</h2>
+                            <p>I learned about Databases and how to create one using MariaDB and MongoDB</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-content">
-                            <h2>2024</h2><p>I started learning about machine learning with Assembly</p>
+                            <h2 class="timeline-year">2024</h2>
+                            <p>I started learning about machine learning with Assembly</p>
                         </div>
                     </div>
                 </div>
@@ -325,6 +366,15 @@ a:hover {
 
             <div id="code" class="content">
                 <h2>My Projects</h2>
+                <ul>
+                    <li><a href="https://github.com/enzzzh/FreeWinActivKey">Windows Activation Tool</a></li>
+                    <li><a href="https://github.com/enzzzh/FreeOfficeActivKey">Office Activation Tool</a></li>
+                    <li><a href="https://github.com/enzzzh/NeuralNetwork">Neural Network Template</a></li>
+                </ul>
+            </div>
+
+            <div id="contact" class="content">
+                <h2>Get in Touch</h2>
                 <ul>
                     <li><a href="https://github.com/enzzzh/FreeWinActivKey">Windows Activation Tool</a></li>
                     <li><a href="https://github.com/enzzzh/FreeOfficeActivKey">Office Activation Tool</a></li>
