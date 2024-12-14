@@ -8,7 +8,7 @@
     <style>
         :root {
             --primary-color: #dadada;
-            --bg-color: #000000;
+            --bg-color: hsl(0, 0%, 15%);
             --text-color: #ffffff;
             --heading-color: #F5F5F5;
             --nav-bg: rgba(110, 110, 110, 0.85);
@@ -60,12 +60,12 @@
 
         /* Navigation Styles */
         nav {
-            width: 200px;
+            width: 400px;
             padding: 2rem;
             position: sticky;
             top: 2rem;
             height: fit-content;
-            transition: all 0.3s ease;
+            transition: all 0.3s fade;
         }
 
         .tabs {
@@ -159,7 +159,7 @@
         .timeline-item {
             position: relative;
             padding: 20px;
-            background-color: rgba(71, 71, 71, 0.1);
+            background-color: hsl(0, 0, 15%);
             border-radius: 8px;
             margin-bottom: 40px;
             width: calc(50% - 30px);
@@ -297,11 +297,16 @@
         <nav>
             <ul class="tabs">
                 <li class="tab active" data-tab="general">
-                    <i class="fas fa-home"></i> General
+                    <i class="fas fa-user-circle"></i> My Profile
                 </li>
                 <li class="tab" data-tab="about">
-                    <i class="fas fa-user"></i> About Me
+                    <i class="fas fa-book"></i> About Me
                 </li>
+                <li class="tab" data-tab="studies">
+                    <i class="fas fa-pencil"></i>My Studies
+                </li>
+            </li>
+
                 <li class="tab" data-tab="pinboard">
                     <i class="fas fa-clock"></i> Timeline
                 </li>
@@ -311,7 +316,8 @@
                 <li class="tab" data-tab="contact">
                     <i class="fas fa-envelope"></i> Contact
                 </li>
-            </ul>
+                <li>
+
         </nav>
 
         <main>
@@ -327,15 +333,33 @@
                     <img id="profile-picture" src="profile_picture.jpg" alt="Profile Picture">
                     <div>
                         <h2>About Me</h2>
-                        <p>Hey, I'm Enzo, a 16-year-old developer from Lebanon.</p>
+                        <p>Hey, my name is Enzo, I am 16-year-old </p>
+                        <p> taught developer from Lebanon.</p>
                         <p>Currently a student in a private high school.</p>
                         <p>I'm passionate about coding and building things from ground up.</p>
                     </div>
                 </div>
             </div>
+            <div id="studies" class="content">
+                <h2>Researches</h2> <br>
+                <ul>
+                    <h3>Pharmaceutical researches : </h3> 
+                    <p>I am currently researching the use of many variation of plants such as Aloe Verae and Arabidopsis Thaliana and their impact on recent medicine </p> <br>
+                    <h3>Reseaches on physics and aerospace engineering : </h3>
+                    <p>I am also conducting researches on planes functionalities and aerodynamics fundamentals </p><br>
+
+                    <h3>Extracurriculars and competitions : </h3> 
+                    <p>Bronze medal at MakeX inter Asian competition 2024 in Thailand</p>
+                    <p>Gold medalist in the MakeX national competition</p> 
+                    <p> 3 times gold medalist national championship of TaeKwonDo </p>
+                    <p>Silver medal in national championship</p>
+
+
+                </ul>
+            </div>
 
             <div id="pinboard" class="content">
-                <h2>Timeline</h2>
+                <h2>Coding Timeline</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-content">
@@ -367,26 +391,25 @@
             <div id="code" class="content">
                 <h2>My Projects</h2>
                 <ul>
-                    <li><a href="https://github.com/enzzzh/FreeWinActivKey">Windows Activation Tool</a></li>
-                    <li><a href="https://github.com/enzzzh/FreeOfficeActivKey">Office Activation Tool</a></li>
-                    <li><a href="https://github.com/enzzzh/NeuralNetwork">Neural Network Template</a></li>
+                    <ul><a href="https://github.com/enzzzh/FreeWinActivKey"><h3>Windows Activation Tool :</h3>
+
+                    <p>Enjoy your Windows experience for free without breaking a sweat</p></a></ul><br>
+                    <ul><a href="https://github.com/enzzzh/FreeOfficeActivKey"><h3>Office Activation Tool :</h3>
+                    <p>Enjoy your Office experience for free without breaking a sweat</p></a></ul><br>
+                    <ul><a href="https://github.com/enzzzh/NeuralNetwork"><h3>Neural Network Template : </h3>
+                    <p>The future of AI is between the hands of Artificial intelligence. This is an attemp to build one of the neurons of the AI</p></a></ul>
                 </ul>
             </div>
+
+            <div 
 
             <div id="contact" class="content">
                 <h2>Get in Touch</h2>
                 <ul>
-                    <li><a href="https://github.com/enzzzh/FreeWinActivKey">Windows Activation Tool</a></li>
-                    <li><a href="https://github.com/enzzzh/FreeOfficeActivKey">Office Activation Tool</a></li>
-                    <li><a href="https://github.com/enzzzh/NeuralNetwork">Neural Network Template</a></li>
-                </ul>
-            </div>
-
-            <div id="contact" class="content">
-                <h2>Get in Touch</h2>
-                <ul>
-                    <li><a href="https://instagram.com/@enzzz.h">My Instagram</a></li>
-                    <li><a href="https://github.com/enzzzh">My GitHub profile </a></li>
+                    <a href="https://instagram.com/@enzzz.h">My Instagram</a> <br>
+                    <a href="https://github.com/enzzzh">My GitHub profile </a> <br>
+                    <a href="mailto:enzohakim2008@gmail.com">My Email</a> <br>
+                    <a href="https://youtube.com/@enzzz.h">My YouTube</a>
                 </ul>
             </div>
         </main>
