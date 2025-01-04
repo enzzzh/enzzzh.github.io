@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+        blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+        img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u,
+        i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+        tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+        figcaption, footer, header, hgroup, main, menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+
+        html {
+            line-height: 1;
+        }
+
+        body {
+            color: #ffffff;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            background: #272727;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+            padding: 0 1em;
+            font-style: italic;
+            animation: fadeIn 1s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.75em;
+            margin-top: 30px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        p {
+            font-size: 1.25em;
+            margin: 10px 0 30px; /* Increased spacing */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #7d7d7d; /* Greyscale button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #5e5e5e; /* Darker greyscale on hover */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 1;
+                transform: translateX(-500px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner loadanimation">
+            <h1>Enzzz</h1>
+            <p><span id="spin"></span></p>
+            <div class="gap </div>
+
+            <h2>Education:</h2>
+            <p><strong>Lycee Montaigne</strong> Beit Chebab, Lebanon</p>
+            <p>Graduated: June 2026</p>
+            <div class="gap"></div>
+
+            <h2>Skills:</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>React, Node.js</li>
+                <li>Python, Java</li>
+                <li>Git, Docker</li>
+                <li>Assembly, Bash</li>
+                <li>Critical thinking and problem solving</li>
+            </ul>
+            <div class="gap"></div>
+
+            <h2>Extracurricular Activities:</h2>
+            <ul>
+                <li>Member of the music band</li>
+                <li>Volunteer at local Microsoft corporation</li>
+                <li>Participated in Hackathons and Coding Competitions</li>
+                <li>Top 1000 at LeetCode</li>
+            </ul>
+            <div class="gap"></div>
+
+            <button class="button" onclick="window.location.href='index.html'">Return to Home</button>
+        </div>
+    </div>
+</body>
+</html>
