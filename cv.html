@@ -6,133 +6,158 @@
     <title>My CV</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
-        blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
-        img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u,
-        i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
-        tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
-        figcaption, footer, header, hgroup, main, menu, nav, output, ruby, section, summary,
-        time, mark, audio, video {
+        * {
             margin: 0;
             padding: 0;
-            border: 0;
-            font: inherit;
-            font-size: 100%;
-            vertical-align: baseline;
-        }
-
-        html {
-            line-height: 1;
+            box-sizing: border-box;
         }
 
         body {
             color: #ffffff;
-            text-align: center;
             font-family: 'Roboto', sans-serif;
-            background: #272727;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
+            overflow-y: auto; 
+            text-align: center;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px; 
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(50, 50, 50, 0.9); 
+            border-radius: 10px; 
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #979693; 
+            border-radius: 10px; 
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5e5e5e; 
+        }
+
+        .container {
+            background: rgba(50, 50, 50, 0.9);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: 20px auto; 
+            transform: translateY(20px); 
+            animation: fadeIn 0.5s ease-in-out forwards; 
         }
 
         h1 {
             font-size: 3em;
-            padding: 0 1em;
             font-style: italic;
-            animation: fadeIn 0.5s ease-in-out;
             margin-bottom: 20px;
+            animation: fadeIn 0.5s ease-in-out forwards; 
         }
 
         h2 {
-            font-size: 1.75em;
+            font-size: 2em;
             margin-top: 30px;
-            animation: fadeIn 0.5s ease-in-out;
+            color: #adadad; 
+            animation: fadeIn 0.5s ease-in-out forwards; 
         }
 
         p {
             font-size: 1.25em;
-            margin: 10px 0 30px; /* Increased spacing */
-            animation: fadeIn 1s ease-in-out;
+            margin: 10px 0 30px;
+            animation: fadeIn 1s ease-in-out forwards; 
         }
 
         ul {
             list-style: none;
             padding: 0;
-            animation: fadeIn 1s ease-in-out;
+            animation: fadeIn 1s ease-in-out forwards; 
         }
 
         li {
             margin: 10px 0;
+            font-size: 1.1em;
         }
 
         .button {
-            margin-top: 30px;
+            margin-top: 20px;
             padding: 10px 20px;
             font-size: 1em;
             color: #ffffff;
-            background-color: #7d7d7d; /* Greyscale button */
+            background-color: #979693; 
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            animation: fadeIn 1.5s ease-in-out;
+            animation: fadeIn 1.5s ease-in-out forwards; 
+            width: 100%; 
+            max-width: 200px; 
         }
 
         .button:hover {
-            background-color: #5e5e5e; /* Darker greyscale on hover */
+            background-color: #5e5e5e; 
         }
 
         @keyframes fadeIn {
             0% {
-                opacity: 1;
-                transform: translateX(-500px);
+                opacity: 0;
+                transform: translateY(20px); 
             }
             100% {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0); 
             }
         }
 
 
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em; 
+            }
+
+            h2 {
+                font-size: 1.75em; 
+            }
+
+            p {
+                font-size: 1.1em; 
+            }
+
+            li {
+                font-size: 1.1em; 
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="outer">
-        <div class="inner loadanimation">
-            <h1>Enzzz</h1>
-            <p><span id="spin"></span></p>
-            <div class="gap </div>
+    <div class="container">
+        <h1>Enzzz</h1>
+        <p><span id="spin"></span></p>
 
-            <h2>Education:</h2>
-            <p><strong>Lycee Montaigne</strong> Beit Chebab, Lebanon</p>
-            <p>Graduated: June 2026</p>
-            <div class="gap"></div>
+        <h2>Education:</h2>
+        <p><strong>Lycee Montaigne</strong> Beit Chebab, Lebanon</p>
+        <p>Graduated: June 2026</p>
 
-            <h2>Skills:</h2>
-            <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>React, Node.js</li>
-                <li>Python, Java</li>
-                <li>Git, Docker</li>
-                <li>Assembly, Bash</li>
-                <li>Critical thinking and problem solving</li>
-            </ul>
-            <div class="gap"></div>
+        <h2>Skills:</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>React, Node.js</li>
+            <li>Python, Java</li>
+            <li>Git, Docker</li>
+            <li>Assembly, Bash</li>
+            <li>Critical thinking and problem solving</li>
+        </ul>
 
-            <h2>Extracurricular Activities:</h2>
-            <ul>
-                <li>Member of the music band</li>
-                <li>Volunteer at local Microsoft corporation</li>
-                <li>Participated in Hackathons and Coding Competitions</li>
-                <li>Top 1000 at LeetCode</li>
-            </ul>
-            <div class="gap"></div>
+        <h2>Extracurricular Activities:</h2>
+        <ul>
+            <li>Member of the music band</li>
+            <li>Volunteer at local Microsoft corporation</li>
+            <li>Participated in Hackathons and Coding Competitions</li>
+            <li>Top 1000 at LeetCode</li>
+        </ul>
 
-            <button class="button" onclick="window.location.href='index.html'">Return to Home</button>
-        </div>
+        <button class="button" onclick="window.location.href='index.html'">Return to Home</button>
     </div>
 </body>
 </html>
