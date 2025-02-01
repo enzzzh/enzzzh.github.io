@@ -1,329 +1,182 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
+    <link rel="shortcut icon" type="image/png" href="resources/favicon.png"/>
+    <title>Welcome to My Home</title>
+    <style>
+     
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-		<!-- include compass css translation -->
-		<link href="stylesheets/style.css" type="text/css" rel="stylesheet" >
+        body {
+            color: #ffffff;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            background: #272727;
+            overflow-y: auto; 
+        }
 
-		<!-- fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        
+        ::-webkit-scrollbar {
+            width: 8px; 
+        }
 
-		<!-- import icons -->
-		<script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
+        ::-webkit-scrollbar-track {
+            background: rgba(50, 50, 50, 0.9); 
+            border-radius: 10px; 
+        }
 
-		<!-- Import favicons -->
-		<link rel="shortcut icon" type="image/png" href="resources/favicon.png"/>
+        ::-webkit-scrollbar-thumb {
+            background: #979693; 
+            border-radius: 10px; 
+        }
 
-		<title>Welcome to my home</title>
-	</head>
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5e5e5e; 
+        }
 
-	<div class="outer">
-		<div class="inner">
-			<section class = "gap loadanimation">
-				<img src="resources/avatar.jpeg" class="avatar">
-				<h1 class="padDown">Welcome</h1> <br>
-				<p>I can code <span id="spin"></span></p>
+        .outer {
+            padding: 20px;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
-			<ul class="gap social">
-				<li class="icon-resume tile"><a href= "404.html"><ion-icon name="document"></ion-icon><br><br>Resume</a></li>
-				<li class="icon-transcript tile"><a href="404.html"><ion-icon name="school"></ion-icon><br><br>Transcript</a></li>
-				<li class="icon-github tile"><a href="https://github.com/enzzzh"><ion-icon name="logo-github"></ion-icon><br><br>GitHub</a></li>
-				<li class="icon-linkedin tile"><a href="https://www.linkedin.com/in/enzzz.h/"><ion-icon name="logo-linkedin"></ion-icon><br><br>LinkedIn</a></li>
-				<li class="icon-email tile"><a href="mailto: enzohakim2008@gmail.com"><ion-icon name="mail"></ion-icon><br><br>Email</a></li>
-			</ul>		</div>
-	</div>
+        .inner {
+            display: inline-block;
+            padding: 40px;
+            background: rgba(50, 50, 50, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: 20px auto;
+            transform: translateY(20px); 
+            animation: fadeInRight 1s ease-in-out both;
+            min-height: 400px; 
+        }
+
+        h1 {
+            font-size: 2.25em;
+            padding: 0 1em;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.25em;
+            margin: 10px 0 30px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 100px; 
+            box-shadow: 0 0 0px 3px #fff, 0 0 0 4px #ccc, 0 4px 6px #333;
+        }
+
+        .avatar {
+            width: 150px; 
+            height: 150px; 
+        }
+
+        .social {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .social li {
+            display: inline-block;
+            margin: 0.5em;
+            transition: transform 0.15s ease;
+        }
+
+        .social li:hover {
+            transform: scale(1.25);
+            color: #272727;
+        }
+
+        .social li a {
+            display: block;
+            color: #acacac;
+            padding: 1em;
+            width: 6em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .social li a:hover {
+            background: #5e5e5e;
+        }
+
+        /* Icon colors */
+        .icon-resume { color: #acacac; }
+        .icon-email { color: #acacac; }
+        .icon-github { color: #acacac; }
+        .icon-linkedin { color: #acacac; }
+        .icon-transcript { color: #acacac; }
+
+        
+        .loadanimation {
+            animation: fadeInRight 1s ease-in-out both;
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(300px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        #spin {
+            color: #ffffff;
+        }
+
+        #spin:after {
+            content: "";
+            animation: spin 2.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { content: "Go"; }
+            10% { content: "C++"; }
+            20% { content: "Java"; }
+            30% { content: "Python"; }
+            40% { content: "Node"; }
+            50% { content: "JavaScript"; }
+            60% { content: "PHP"; }
+            70% { content: "Assembly"; }
+            80% { content: "React"; }
+            90% { content: "C#"; }
+            100% { content: "Bash"; }
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner loadanimation">
+            <img src="resources/avatar.jpeg" class="avatar" alt="Avatar">
+            <h1 class="padDown">Welcome</h1>
+            <p>I can code <span id="spin"></span></p>
+
+            <ul class="social">
+                <li class="icon-resume tile"><a href="cv.html"><ion-icon name="document"></ion-icon><br>Resume</a></li>
+                <li class="icon-transcript tile"><a href="404.html"><ion-icon name="school"></ion-icon><br>Transcript</a></li>
+                <li class ="icon-github tile"><a href="https://github.com/enzzzh"><ion-icon name="logo-github"></ion-icon><br>GitHub</a></li>
+                <li class="icon-linkedin tile"><a href="https://www.linkedin.com/in/enzzz.h/"><ion-icon name="logo-linkedin"></ion-icon><br>LinkedIn</a></li>
+                <li class="icon-email tile"><a href="mailto:enzohakim2008@gmail.com"><ion-icon name="mail"></ion-icon><br>Email</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
 </html>
-<style>
-	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
-img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u,
-i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
-tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
-figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-html {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-a img {
-  border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
-body {
-  color: #ffffff;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  background: #272727;
-}
-
-h1 {
-  font-size: 2.25em;
-  padding: 0 1em;
-  font-style: italic;
-}
-
-a {
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-ion-icon {
-  font-size: 25px;
-}
-
-.gap {
-  padding: 1em 0 0;
-}
-
-.padDown {
-  padding: 0.5em 0em 0.5em;
-}
-
-.outer {
-  padding: 20px;
-  text-align: center;
-  overflow-x: hidden;
-}
-
-.inner {
-  display: inline-block;
-  padding: 40px;
-}
-
-.avatar {
-  -moz-box-shadow: 0 0 0px 3px #272727, 0 0 0 4px #272727, 0 4px 6px #333;
-  -webkit-box-shadow: 0 0 0px 3px #272727, 0 0 0 4px #272727, 0 4px 6px #333;
-  box-shadow: 0 0 0px 3px #fff, 0 0 0 4px #ccc, 0 4px 6px #333;
-  -moz-border-radius: 100px;
-  -webkit-border-radius: 100px;
-  border-radius: 100px;
-  width: 200px;
-  height: 200px;
-}
-
-.loadanimation {
-  animation: 1s ease-in-out both fadeInRight;
-}
-
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(300px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-}
-
-.tile {
-  animation: .4s ease-in-out both fade-in;
-}
-
-.tile:nth-child(1) {
-  animation-delay: 1.35s;
-}
-
-.tile:nth-child(2) {
-  animation-delay: 1.5s;
-}
-
-.tile:nth-child(3) {
-  animation-delay: 1.65s;
-}
-
-.tile:nth-child(4) {
-  animation-delay: 1.8s;
-}
-
-.tile:nth-child(5) {
-  animation-delay: 1.95s;
-}
-
-.tile:nth-child(6) {
-  animation-delay: 2.1s;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.social li {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  *zoom: 1;
-  *display: inline;
-  margin: .5em;
-  -moz-transition: all 0.15s ease;
-  -o-transition: all 0.15s ease;
-  -webkit-transition: all 0.15s ease;
-  transition: all 0.15s ease;
-}
-
-.social li:hover {
-  -moz-transform: scale(1.25, 1.25);
-  -ms-transform: scale(1.25, 1.25);
-  -webkit-transform: scale(1.25, 1.25);
-  transform: scale(1.25, 1.25);
-  color: #272727;
-}
-
-.social li:before {
-  position: absolute;
-  width: 2em;
-  margin-left: -1em;
-  top: 1.5em;
-  left: 50%;
-}
-
-.social li a {
-  display: block;
-  color: inherit;
-  padding: 1em 1em 1em;
-  width: 6em;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.icon-resume {
-  color: #acacac;
-}
-
-.icon-resume:hover {
-  background: #5e5e5e;
-}
-
-.icon-email {
-  color: #acacac;
-}
-
-.icon-email:hover {
-  background: #5e5e5e;
-}
-
-.icon-github {
-  color: #acacac;
-}
-
-.icon-github:hover {
-  background: #5e5e5e;
-}
-
-.icon-linkedin {
-  color: #acacac;
-}
-
-.icon-linkedin:hover {
-  background: #5e5e5e;
-}
-
-.icon-instagram {
-  color: #acacac;
-}
-
-.icon-instagram:hover {
-  background: #5e5e5e;
-}
-
-.icon-transcript {
-  color: #acacac;
-}
-
-.icon-transcript:hover {
-  background: #5e5e5e;
-}
-
-#spin {
-  color: #ffffff;
-}
-
-#spin:after {
-  content: "";
-  animation: spin 2.5s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    content: "Go";
-  }
-  10% {
-    content: "C++";
-  }
-  20% {
-    content: "Java";
-  }
-  30% {
-    content: "Python";
-  }
-  40% {
-    content: "Node";
-  }
-  50% {
-    content: "JavaScript";
-  }
-  60% {
-    content: "PHP";
-  }
-  70% {
-    content: "Assembly";
-  }
-  80% {
-    content: "React";
-  }
-  90% {
-    content: "C#";
-  }
-  100% {
-    content: "Bash";
-  }
-}
-</style>
