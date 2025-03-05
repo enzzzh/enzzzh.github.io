@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,119 +13,141 @@
         }
 
         body {
-            color: #ffffff;
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
-            overflow-y: auto; 
-            text-align: center;
+            font-family: 'Inter', sans-serif;
+            background: #1a1a1a; 
+            color: #e0e0e0; 
+            line-height: 1.6;
+            overflow-y: auto;
         }
 
         ::-webkit-scrollbar {
-            width: 8px; 
+            width: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: rgba(50, 50, 50, 0.9); 
-            border-radius: 10px; 
+            background: #333; 
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #979693; 
-            border-radius: 10px; 
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #5e5e5e; 
+            background: #555; 
+            border-radius: 4px;
         }
 
         .container {
-            background: rgba(50, 50, 50, 0.9);
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            max-width: 600px;
-            margin: 20px auto; 
-            transform: translateY(20px); 
-            animation: fadeIn 0.5s ease-in-out forwards; 
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+            background: rgba(30, 30, 30, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-size: 3em;
-            font-style: italic;
-            margin-bottom: 20px;
-            animation: fadeIn 0.5s ease-in-out forwards; 
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #ffffff; 
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #ffffff; 
+            animation: underlineExpand 0.8s ease-out;
+        }
+
+        @keyframes underlineExpand {
+            from { width: 0; }
+            to { width: 60px; }
         }
 
         h2 {
-            font-size: 2em;
-            margin-top: 30px;
-            color: #adadad; 
-            animation: fadeIn 0.5s ease-in-out forwards; 
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff; 
+            margin: 2rem 0 1rem;
+            border-bottom: 2px solid #444; 
+            padding-bottom: 0.5rem;
         }
 
         p {
-            font-size: 1.25em;
-            margin: 10px 0 30px;
-            animation: fadeIn 1s ease-in-out forwards; 
+            margin: 1rem 0;
+            color: #b0b0b0; 
+            font-size: 1.1rem;
         }
 
         ul {
             list-style: none;
-            padding: 0;
-            animation: fadeIn 1s ease-in-out forwards; 
+            padding-left: 1.5rem;
         }
 
         li {
-            margin: 10px 0;
-            font-size: 1.1em;
+            margin: 0.8rem 0;
+            position: relative;
+            color: #cbd5e1; 
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        li::before {
+            content: '▹';
+            position: absolute;
+            left: -1.5rem; 
+            color: #ffffff; 
+            margin-right: 0.5rem; 
+        }
+
+        li:hover {
+            transform: translateX(8px);
+            color: #ffffff; 
         }
 
         .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1em;
-            color: #ffffff;
-            background-color: #979693; 
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            animation: fadeIn 1.5s ease-in-out forwards; 
-            width: 100%; 
-            max-width: 200px; 
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            margin-top: 2rem;
+            background: #a1a1a1; 
+            color: #242424; 
+            border: 1px solid #444; 
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .button:hover {
-            background-color: #5e5e5e; 
+            background: #ffffff; 
+            color: rgb(0, 0, 0) a1a; 
+            border-color: #fcfcfc; 
+            transform: translateY(-2px);
         }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px); 
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0); 
-            }
-        }
-
 
         @media (max-width: 768px) {
+            .container {
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+            
             h1 {
-                font-size: 2.5em; 
+                font-size: 2rem;
             }
-
+            
             h2 {
-                font-size: 1.75em; 
-            }
-
-            p {
-                font-size: 1.1em; 
-            }
-
-            li {
-                font-size: 1.1em; 
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -133,13 +155,12 @@
 <body>
     <div class="container">
         <h1>Enzzz</h1>
-        <p><span id="spin"></span></p>
 
-        <h2>Education:</h2>
-        <p><strong>Lycee Montaigne</strong> Beit Chebab, Lebanon</p>
+        <h2>Education</h2>
+        <p><strong>Lycee Montaigne</strong> · Beit Chebab, Lebanon</p>
         <p>Graduated: June 2026</p>
 
-        <h2>Skills:</h2>
+        <h2>Technical Skills</h2>
         <ul>
             <li>HTML, CSS, JavaScript</li>
             <li>React, Node.js</li>
@@ -149,7 +170,7 @@
             <li>Critical thinking and problem solving</li>
         </ul>
 
-        <h2>Extracurricular Activities:</h2>
+        <h2>Experience</h2>
         <ul>
             <li>Member of the music band</li>
             <li>Volunteer at local Microsoft corporation</li>
@@ -157,7 +178,9 @@
             <li>Top 1000 at LeetCode</li>
         </ul>
 
-        <button class="button" onclick="window.location.href='index.html'">Return to Home</button>
+        <a href="index.html" class="button">
+            ← Return to Home
+        </a>
     </div>
 </body>
 </html>
