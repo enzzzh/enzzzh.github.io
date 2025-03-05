@@ -7,7 +7,6 @@
     <link rel="shortcut icon" type="image/png" href="resources/favicon.png"/>
     <title>Welcome to My Home</title>
     <style>
-     
         * {
             margin: 0;
             padding: 0;
@@ -18,11 +17,10 @@
             color: #ffffff;
             text-align: center;
             font-family: 'Roboto', sans-serif;
-            background: #272727;
+            background: #1a1a1a; 
             overflow-y: auto; 
         }
 
-        
         ::-webkit-scrollbar {
             width: 8px; 
         }
@@ -33,12 +31,12 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #979693; 
+            background: #555; 
             border-radius: 10px; 
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #5e5e5e; 
+            background: #777; 
         }
 
         .outer {
@@ -56,15 +54,38 @@
             max-width: 600px;
             margin: 20px auto;
             transform: translateY(20px); 
-            animation: fadeInRight 1s ease-in-out both;
+            animation: fadeIn 1s ease-in-out both;
             min-height: 400px; 
         }
 
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         h1 {
-            font-size: 2.25em;
+            font-size: 2.5em;
             padding: 0 1em;
             font-style: italic;
             margin-bottom: 20px;
+            animation: slideIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         p {
@@ -77,6 +98,11 @@
             height: auto;
             border-radius: 100px; 
             box-shadow: 0 0 0px 3px #fff, 0 0 0 4px #ccc, 0 4px 6px #333;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05); 
         }
 
         .avatar {
@@ -98,7 +124,7 @@
 
         .social li:hover {
             transform: scale(1.25);
-            color: #272727;
+            color: #2dd4bf; 
         }
 
         .social li a {
@@ -108,57 +134,26 @@
             width: 6em;
             text-decoration: none;
             border-radius: 5px;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .social li a:hover {
             background: #5e5e5e;
+            color: #ffffff; 
         }
 
-        /* Icon colors */
-        .icon-resume { color: #acacac; }
-        .icon-email { color: #acacac; }
-        .icon-github { color: #acacac; }
-        .icon-linkedin { color: #acacac; }
-        .icon-transcript { color: #acacac; }
+        Icon colors .icon-resume, .icon-email, .icon-github, .icon-linkedin, .icon-transcript { 
+            color: #acacac; 
+        }
 
-        
         .loadanimation {
-            animation: fadeInRight 1s ease-in-out both;
+            animation: fadeIn 1s ease-in-out both;
         }
 
-        @keyframes fadeInRight {
-            0% {
-                opacity: 0;
-                transform: translateX(300px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        #spin {
-            color: #ffffff;
-        }
-
-        #spin:after {
-            content: "";
-            animation: spin 2.5s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { content: "Go"; }
-            10% { content: "C++"; }
-            20% { content: "Java"; }
-            30% { content: "Python"; }
-            40% { content: "Node"; }
-            50% { content: "JavaScript"; }
-            60% { content: "PHP"; }
-            70% { content: "Assembly"; }
-            80% { content: "React"; }
-            90% { content: "C#"; }
-            100% { content: "Bash"; }
+        .skill {
+            display: inline-block;
+            font-size: 1.5em;
+            transition: opacity 0.5s ease;
         }
     </style>
 </head>
@@ -167,16 +162,33 @@
         <div class="inner loadanimation">
             <img src="resources/avatar.jpeg" class="avatar" alt="Avatar">
             <h1 class="padDown">Welcome</h1>
-            <p>I can code <span id="spin"></span></p>
+            <p>I can code <span id="spin" class="skill"></span></p>
 
             <ul class="social">
                 <li class="icon-resume tile"><a href="cv.html"><ion-icon name="document"></ion-icon><br>Resume</a></li>
                 <li class="icon-transcript tile"><a href="404.html"><ion-icon name="school"></ion-icon><br>Transcript</a></li>
-                <li class ="icon-github tile"><a href="https://github.com/enzzzh"><ion-icon name="logo-github"></ion-icon><br>GitHub</a></li>
+                <li class="icon-github tile"><a href="https://github.com/enzzzh"><ion-icon name="logo-github"></ion-icon><br>GitHub</a></li>
                 <li class="icon-linkedin tile"><a href="https://www.linkedin.com/in/enzo-hakim-885293290/"><ion-icon name="logo-linkedin"></ion-icon><br>LinkedIn</a></li>
                 <li class="icon-email tile"><a href="mailto:enzohakim2008@gmail.com"><ion-icon name="mail"></ion-icon><br>Email</a></li>
             </ul>
         </div>
     </div>
+    <script>
+        const skills = ["C++", "Java", "Python", "Node", "JavaScript", "PHP", "Assembly", "React", "C#", "Bash"];
+        let index = 0;
+        const spinElement = document.getElementById('spin');
+
+        function updateSkill() {
+            spinElement.style.opacity = 0; 
+            setTimeout(() => {
+                spinElement.textContent = skills[index];
+                spinElement.style.opacity = 1; 
+                index = (index + 1) % skills.length; 
+            }, 500); 
+        }
+
+        setInterval(updateSkill, 1500); 
+        updateSkill(); 
+    </script>
 </body>
 </html>
