@@ -16,7 +16,7 @@
             font-family: 'Inter', sans-serif;
             background: #1a1a1a; 
             color: #e0e0e0; 
-            line-height: 2.6;
+            line-height: 1.6;
             overflow-y: auto;
         }
 
@@ -60,19 +60,25 @@
         }
 
         h1::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: #ffffff; 
-            animation: underlineExpand 0.8s ease-out;
-        }
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 3px;
+    background: #ffffff;
+    animation: underlineExpand 0.8s ease-out forwards;
+}
+
+@keyframes underlineExpand {
+    from { width: 0px; }
+    to { width: 200px; }
+}
 
         @keyframes underlineExpand {
-            from { width: 0; }
-            to { width: 120px; }
+            from { width: 0px; }
+            to { width: 150px; }
         }
 
         h2 {
@@ -154,7 +160,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Enzo (El) Hakim </h1>
+        <h1>Enzo Hakim</h1>
 
         <h2>Education</h2>
         <p><strong>Lycee Montaigne</strong> · Beit Chebab, Lebanon</p>
