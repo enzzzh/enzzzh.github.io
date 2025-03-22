@@ -71,10 +71,7 @@
 
         h1 {
             font-size: 2.5em;
-            padding: 0 1em;
-            font-style: italic;
-            margin-bottom: 20px;
-            animation: slideIn 0.5s ease-in-out forwards;
+            margin-bottom: 15px;
         }
 
         @keyframes slideIn {
@@ -89,7 +86,7 @@
         }
 
         p {
-            font-size: 1.25em;
+            font-size: 1em;
             margin: 10px 0 30px;
         }
 
@@ -97,7 +94,6 @@
             max-width: 100%;
             height: auto;
             border-radius: 100px; 
-            box-shadow: 0 0 0px 3px #fff, 0 0 0 4px #ccc, 0 4px 6px #333;
             transition: transform 0.3s ease;
         }
 
@@ -146,15 +142,13 @@
             color: #acacac; 
         }
 
-        .loadanimation {
-            animation: fadeIn 1s ease-in-out both;
-        }
 
         .skill {
             display: inline-block;
             font-size: 1.5em;
-            transition: opacity 0.5s ease;
+            transition: linear 0.5s ;
         }
+        
     </style>
 </head>
 <body>
@@ -174,7 +168,7 @@
         </div>
     </div>
     <script>
-        const skills = ["C++", "Java", "Python", "Node", "JavaScript", "PHP", "Assembly", "React", "C#", "Bash"];
+        const skills = ["C++", "Java", "Python", "Node", "JavaScript", "Kotlin", "Assembly", "SQL", "C#", "Bash"];
         let index = 0;
         const spinElement = document.getElementById('spin');
 
@@ -187,7 +181,7 @@
             }, 500); 
         }
 
-        setInterval(updateSkill, 1500); 
+        setInterval(updateSkill, 1000); 
         updateSkill(); 
     </script>
 </body>
