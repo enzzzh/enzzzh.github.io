@@ -1,119 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
+    <link rel="shortcut icon" type="image/png" href="resources/favicon.png"/>
+    <title>Welcome to My Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
-img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u,
-i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
-tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
-figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-html {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-a img {
-  border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
-body {
-  color: #ffffff;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  background: #272727;
-}
-
-h1 {
-  font-size: 2.25em;
-  padding: 0 1em;
-  font-style: italic;
-}
-
-a {
-  text-decoration: none;
-}
-
-
-body {
+        body {
             color: #ffffff;
             text-align: center;
             font-family: 'Roboto', sans-serif;
-            background: #272727;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: #1a1a1a; 
+            overflow-y: auto; 
         }
 
-        h1 {
-            font-size: 3em;
-            padding: 0 1em;
-            font-style: italic;
-            animation: fadeIn 1s ease-in-out;
+        ::-webkit-scrollbar {
+            width: 8px; 
         }
 
-        p {
-            font-size: 1.25em;
-            animation: fadeIn 1.5s ease-in-out;
+        ::-webkit-scrollbar-track {
+            background: rgba(50, 50, 50, 0.9); 
+            border-radius: 10px; 
         }
 
-        .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1em;
-            color: #ffffff;
-            background-color: #0e0e0e;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            animation: fadeIn 2s ease-in-out;
+        ::-webkit-scrollbar-thumb {
+            background: #525252; 
+            border-radius: 10px; 
         }
 
-        .button:hover {
-            background-color: #616161;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #777; 
+        }
+
+        .outer {
+            padding: 20px;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .inner {
+            display: inline-block;
+            padding: 40px;
+            background: rgba(50, 50, 50, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: 20px auto;
+            transform: translateY(20px); 
+            animation: fadeIn 1s ease-in-out both;
+            min-height: 400px; 
         }
 
         @keyframes fadeIn {
             0% {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(20px);
             }
             100% {
                 opacity: 1;
@@ -121,29 +69,78 @@ body {
             }
         }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
             }
-            100% {
-                transform: rotate(360deg);
+            to {
+                transform: translateY(0);
+                opacity: 1;
             }
         }
 
-</style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-   
+        p {
+            font-size: 1em;
+            margin: 10px 0 30px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 100px; 
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05); 
+        }
+
+        .avatar {
+            width: 150px; 
+            height: 150px; 
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            margin-top: 2rem;
+            background: #585858; 
+            color: #ffffff; 
+            border: 1px solid #444; 
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: #505050; 
+            color: rgb(0, 0, 0) a1a; 
+           transform: translateY(-6px);
+        }
+
+
+    </style>
 </head>
 <body>
-    <h1>Oops!</h1> <br>
-    <p>The page is still in development.</p>
-    <p>Sorry to keep you waiting so much.</p>
-    <button class="button" onclick="window.location.href='index.html'">Go Back Home</button>
+    <div class="outer">
+        <div class="inner loadanimation">
+            <img src="resources/avatar.jpeg" class="avatar" alt="Avatar">
+            <h1 class="padDown">404</h1> <br>
+            <p>The page is still under developpement </p>
+            <p>Please go back to the main page to continue browsing </p>
+            </ul>
+            <a href="index.html" class="button">
+              ← Return to Home
+          </a>
+        </div>
+    </div>
 </body>
 </html>
