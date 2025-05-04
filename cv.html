@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My CV</title>
+    <title>Enzo Hakim - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="resources/favicon.png"/>
     <style>
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -14,85 +16,100 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #1a1a1a; 
-            color: #e0e0e0; 
+            background: #1a1a1a;
+            color: #e0e0e0;
             line-height: 1.6;
-            overflow-y: auto;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
+        /* Scrollbar Styling */
         ::-webkit-scrollbar {
             width: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #333; 
+            background: #333;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #555; 
+            background: #555;
             border-radius: 4px;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 4rem auto;
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #222;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            margin: 0 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        /* Section Styling */
+        section {
+            max-width: 900px;
+            margin: 2rem auto;
             padding: 2rem;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
             background: rgba(50, 50, 50, 0.9);
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateX(20px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        h1 {
-            font-size: 2.5rem;
+        section h2 {
+            font-size: 2rem;
             font-weight: 600;
-            color: #ffffff; 
-            margin-bottom: 1.5rem;
-            text-align: center;
-            position: relative;
-            display: inline-block;
-        }
-
-        h1::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 220px;
-    height: 3px;
-    background: #ffffff;
-    animation: underlineExpand 1.2s ease-out forwards;
-}
-
-@keyframes underlineExpand {
-    from { width: 0px; }
-    to { width: 200px; }
-}
-
-        @keyframes underlineExpand {
-            from { width: 0px; }
-            to { width: 170px; }
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #ffffff; 
-            margin: 2rem 0 1rem;
-            border-bottom: 2px solid #585858; 
+            color: #ffffff;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #585858;
             padding-bottom: 0.5rem;
         }
 
-        p {
+        section p, section ul {
             margin: 1rem 0;
-            color: #b0b0b0; 
+            color: #b0b0b0;
             font-size: 1.1rem;
         }
 
@@ -104,31 +121,31 @@
         li {
             margin: 0.8rem 0;
             position: relative;
-            color: #cbd5e1; 
+            color: #cbd5e1;
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
         li::before {
             content: '▹';
             position: absolute;
-            left: -1.5rem; 
-            color: #585858; 
-            margin-right: 0.5rem; 
+            left: -1.5rem;
+            color: #585858;
         }
 
         li:hover {
             transform: translateX(8px);
-            color: #ffffff; 
+            color: #ffffff;
         }
 
+        /* Button Styling */
         .button {
             display: inline-flex;
             align-items: center;
             padding: 0.8rem 1.5rem;
             margin-top: 2rem;
-            background: #585858; 
-            color: #ffffff; 
-            border: 1px solid #444; 
+            background: #585858;
+            color: #ffffff;
+            border: 1px solid #444;
             border-radius: 6px;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -136,35 +153,72 @@
         }
 
         .button:hover {
-            background: #404040; 
-            color: rgb(0, 0, 0) a1a; 
+            background: #404040;
             transform: translateY(-6px);
         }
 
-        @media (max-width: 768px) {
-            .container {
-                margin: 2rem 1rem;
-                padding: 1.5rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.3rem;
-            }
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: #585858;
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background: #404040;
+        }
+
+        /* Light Mode */
+        body.light-mode {
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        body.light-mode section {
+            background: #f9f9f9;
+        }
+
+        body.light-mode nav a {
+            color: #1a1a1a;
+        }
+
+        body.light-mode nav a:hover {
+            color: #007acc;
+        }
+
+        body.light-mode .dark-mode-toggle {
+            background: #e0e0e0;
+            color: #1a1a1a;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+
+    <header>
         <h1>Enzo Hakim</h1>
+        <p>Welcome to my professional portfolio</p>
+    </header>
 
-        <h2>Education</h2>
-        <p><strong>Lycee Montaigne</strong> · Beit Chebab, Lebanon</p>
-        <p>Graduated: June 2026</p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm Enzo Hakim, a passionate developer with expertise in web development, problem-solving, and robotics. I love creating sleek and modern websites that provide an excellent user experience.</p>
+    </section>
+
+    <section id="skills">
         <h2>Technical Skills</h2>
         <ul>
             <li>HTML, CSS, JavaScript</li>
@@ -174,7 +228,9 @@
             <li>Assembly, Bash</li>
             <li>Critical thinking and problem solving</li>
         </ul>
+    </section>
 
+    <section id="experience">
         <h2>Experience</h2>
         <ul>
             <li>Member of the music band</li>
@@ -183,10 +239,16 @@
             <li>Top 10000 at LeetCode</li>
             <li>Member of the robotics competition who participated in MakeX Thailand</li>
         </ul>
+    </section>
 
-        <a href="index.html" class="button">
-            ← Return to Home
-        </a>
-    </div>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>If you'd like to get in touch, feel free to reach out via email or connect with me on LinkedIn!</p>
+        <a href="mailto:enzo@example.com" class="button">Email Me</a>
+    </section>
+
+    <script>
+
+    </script>
 </body>
 </html>
