@@ -168,12 +168,12 @@
         </div>
     </div>
     <script>
-        const skills = ["C++", "Java", "Python", "Ruby", "JavaScript", "Kotlin", "Laravel", "SQL", "PHP", "Bash"];
+        const skills = ["C++", "Java", "Python","JavaScript", "Bash"];
         let index = 0;
         const spinElement = document.getElementById('spin');
 
         function updateSkill() {
-            spinElement.style.opacity = 0; 
+            spinElement.style.opacity = 1; 
             setTimeout(() => {
                 spinElement.textContent = skills[index];
                 spinElement.style.opacity = 1; 
