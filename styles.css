@@ -185,3 +185,29 @@ a {
     display: flex;
 
 }
+
+ .navbar ul{
+        list-style-type: none;
+        background-color: #000000;
+        padding: 0px;
+        overflow: hidden;
+        color: white;
+    }
+
+
+    .navbar a{
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        padding: 15px;
+        display: block;
+        transition: 500ms ease-in;
+    }
+
+.navbar a:hover{
+    padding: 15px;
+    background-color: grey;
+}
+
+.navbar li{
+    float: left;
+}
