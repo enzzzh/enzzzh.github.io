@@ -69,7 +69,7 @@ header p {
 
 nav {
     margin: 2rem 0;
-    text-align: center;
+    text-align: center; 
 }
 
 nav a {
@@ -81,7 +81,8 @@ nav a {
 }
 
 nav a:hover {
-    color: #00bcd4;
+    color: #515252;
+    border-radius: 30%;
 }
 
 section {
