@@ -5,6 +5,44 @@
     text-align: center;
 }
 
+.typewriter {
+  text-align: center; 
+}
+
+.typewriter h1 {
+  display: inline-block;
+  position: relative; 
+    
+  font-family: 'Courier New', monospace;
+  color: rgb(255, 255, 255);
+  overflow: hidden; 
+  border-right: 2px solid #969696; 
+  white-space: nowrap;
+ letter-spacing: 2px;
+  transform: translateX(50%); 
+
+  animation: 
+    typing 3s steps(7, end), 
+    blink-caret 0.75s step-end infinite,
+    slide-in 3s steps(7, end); 
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 6ch }  
+}
+
+@keyframes slide-in {
+    from { transform: translateX(50%); } 
+    to { transform: translateX(0%); }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #fff; }  
+}
+
+
 .logo {
     height: 16em;
     padding: 1.5em;
@@ -78,11 +116,12 @@ nav a {
     margin: 0 1rem;
     font-weight: 500;
     transition: color 0.3s ease;
+    transition: ease-in 0.3s ease;
 }
 
 nav a:hover {
     color: #515252;
-    border-radius: 30%;
+    border-radius: 15%;
 }
 
 section {
