@@ -6,7 +6,7 @@
 }
 
 .typewriter {
-  text-align: center; 
+  text-align: center;
 }
 
 .typewriter h1 {
@@ -16,20 +16,21 @@
   font-family: 'Courier New', monospace;
   color: rgb(255, 255, 255);
   overflow: hidden; 
-  border-right: 2px solid #969696; 
+  border-right: 2px solid #969696;
   white-space: nowrap;
- letter-spacing: 2px;
+  letter-spacing: 2px;
+  
   transform: translateX(50%); 
 
   animation: 
-    typing 3s steps(7, end), 
-    blink-caret 0.75s step-end infinite,
-    slide-in 3s steps(7, end); 
+    typing 3s steps(7, end) forwards, 
+    blink-caret 3s step-end forwards, 
+    slide-in 3s steps(7, end) forwards; 
 }
 
 @keyframes typing {
   from { width: 0 }
-  to { width: 6ch }  
+  to { width: 7ch }  
 }
 
 @keyframes slide-in {
@@ -38,10 +39,9 @@
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
+  from { border-color: transparent }
   50% { border-color: #fff; }  
 }
-
 
 .logo {
     height: 16em;
