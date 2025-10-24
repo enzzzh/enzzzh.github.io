@@ -18,7 +18,7 @@
   overflow: hidden; 
   border-right: 2px solid #969696;
   white-space: nowrap;
-  letter-spacing: 2px;
+  letter-spacing: 0px;
   
   transform: translateX(50%); 
 
