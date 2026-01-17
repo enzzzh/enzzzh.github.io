@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/avatar.jpeg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>CV website</title>
+    <icon rel="apple-touch-icon" href="avatar.jpeg" />
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="#skill">Skills</a></li>
+        <li><a href="#experience">Experience</a> </li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>  
+  <div>
+        <a href="https://github.com/enzzzh" target="_blank">
+          <img src="avatar.jpeg" class="logo" alt="logo" />
+        </a>
+      </div>
+          <div class="typewriter">
+        <h1>I can code <span id="dynamic-text"></span><span class="cursor">|</span></h1>
+    </div>
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <ul>
+          <li>HTML, CSS, JS </li>
+          <li>Python, Java</li>
+          <li>Git, Docker</li>
+          <li>C, Bash</li>
+        </ul>
+      </section>
+      <br />
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <il>
+            <li>Internship at many tech companies (online and on-site)</li>
+            <li>Participated in Coding Competitions</li>
+            <li>I love LeetCode  </li>
+            <li>Member of the robotics competition who participated in MakeX Thailand</li>
+        </il>
+    </section>
+    <br />
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>If you'd like to get in touch, feel free to reach out via email or connect with me on LinkedIn!</p>
+        <a href="mailto:enzohakim2008@gmail.com" class="button">Email Me</a>
+    </section>
+
+  </body>
+</html>
+<script>
+    document.querySelectorAll('section').forEach(section => {
+        section.addEventListener('click', function() {
+            this.classList.add('clicked');
+            setTimeout(() => this.classList.remove('clicked'), 600);
+        });
+    });
+    const textElement = document.getElementById('dynamic-text');
+const languages = ['JS', 'React', 'C', 'Python', 'Java', 'HTML', 'CSS', 'Bash', 'Git', 'Docker'];
+let index = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function type() {
+  const currentLanguage = languages[index];
+  
+  if (isDeleting) {
+    textElement.textContent = currentLanguage.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    textElement.textContent = currentLanguage.substring(0, charIndex + 1);
+    charIndex++;
+  }
+
+  let typeSpeed = isDeleting ? 100 : 200;
+
+  if (!isDeleting && charIndex === currentLanguage.length) {
+    isDeleting = true;
+    typeSpeed = 2000; 
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    index = (index + 1) % languages.length; 
+    typeSpeed = 500;
+  }
+
+  setTimeout(type, typeSpeed);
+}
+document.addEventListener('DOMContentLoaded', type);
+</script>
