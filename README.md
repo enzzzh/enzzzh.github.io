@@ -1,7 +1,3 @@
-# enzzzh.github.io
-This is the most basic ass website to ever exist. 
+# This is the old website 
 
-# Special thanks 
-My technology teacher for teaching me to do those basic stuff :) 
-
-# Website
+The new code is at https://github.com/enzzzh/website
