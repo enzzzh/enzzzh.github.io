@@ -1,3 +1,8 @@
+* {
+	box-sizing: border-box;
+	overflow-wrap: break-word;
+}
+
 .status-card {
 	background-color: #000000;
 	color: #ffffff;
@@ -6,7 +11,7 @@
 	margin: 20px auto;
 	max-width: 300px;
 	font-family: monospace;
-	justify-content: left;
+	justify-content: right;
 
 }
 
@@ -42,6 +47,11 @@ body {
 	font-family: monospace;
 	padding: 0;
 	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+main {
+	width: 100%;
 }
 
 .yo {
@@ -52,6 +62,11 @@ body {
 .techshit {
 	display: grid;
 	justify-content: center;
+}
+
+.techshit img {
+	max-width: 100%;
+	height: auto;
 }
 
 .yo img {
@@ -171,4 +186,46 @@ a {
 .projects {
 	justify-content: center;
 	text-align: center;
+}
+
+@media (max-width: 640px) {
+	main {
+		max-width: 100%;
+		padding: 0;
+	}
+
+	.yo {
+		padding: 20px 16px;
+		text-align: center;
+	}
+
+	.yo img {
+		width: 180px;
+		height: 180px;
+	}
+
+	.status-card {
+		max-width: calc(100% - 32px);
+		margin: 16px auto;
+	}
+
+	.techshit,
+	.projects {
+		padding: 0 16px;
+	}
+
+	.techshit img {
+		width: 100%;
+		height: auto;
+	}
+
+	.secheng {
+		width: 80%;
+		max-width: 260px;
+	}
+
+	#secheng-toggle {
+		top: 6px;
+		right: 6px;
+	}
 }
