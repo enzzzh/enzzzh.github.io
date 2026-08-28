@@ -7,10 +7,8 @@ function setStatus(status, activityLabel) {
 	const name = document.getElementById("discord-name");
 
 	if (status && status !== "unknown") {
-		const online = status === "online" || status === "idle" || status === "dnd";
-		dot.classList.toggle("online", online);
-		dot.classList.toggle("offline", !online);
-
+		const statusClass = (status === "dnd" || status === "idle" || status === "online") ? status : "offline";
+		["online", "idle", "dnd", "offline"].forEach(c => dot.classList.toggle(c, c === statusClass));
 		text.textContent = status === "online"
 			? "Chronically online"
 			: status === "idle"
