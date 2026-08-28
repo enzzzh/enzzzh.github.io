@@ -1,0 +1,174 @@
+.status-card {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 15px;
+	border-radius: 8px;
+	margin: 20px auto;
+	max-width: 300px;
+	font-family: monospace;
+	justify-content: left;
+
+}
+
+.status-indicator {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	margin-right: 5px;
+}
+
+.online {
+	background-color: #43b581;
+}
+
+.idle {
+	background-color: #faa61a;
+}
+
+.dnd {
+	background-color: #f04747;
+}
+
+.offline {
+	background-color: #747f8d;
+}
+
+html,
+body {
+	background-color: black;
+	color: #ffffff;
+	margin: 0;
+	font-family: monospace;
+	padding: 0;
+	min-height: 100vh;
+}
+
+.yo {
+	display: grid;
+	justify-content: center;
+}
+
+.techshit {
+	display: grid;
+	justify-content: center;
+}
+
+.yo img {
+	width: 240px;
+	height: 240px;
+	border-radius: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.page {
+	display: none;
+}
+
+.page.active {
+	display: block;
+}
+
+.secheng {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 220px;
+	height: 100vh;
+	background-color: #1a1a1a;
+	border-left: 1px solid #3a3a3a;
+	font-family: monospace;
+	font-size: 13px;
+	color: #cccccc;
+	z-index: 10;
+	overflow-y: auto;
+	transition: transform 0.2s ease;
+}
+
+.secheng.hidden {
+	transform: translateX(100%);
+}
+
+.secheng-toggle {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	z-index: 11;
+	font-family: monospace;
+	background-color: #1a1a1a;
+	color: #cccccc;
+	border: 1px solid #3a3a3a;
+	padding: 4px 8px;
+	cursor: pointer;
+}
+
+.secheng-toggle:hover {
+	background-color: #d0d0d0;
+	color: #1a1a1a;
+}
+
+.secheng-header {
+	border-bottom: 1px solid #333;
+	padding: 6px 8px;
+	color: #7a7a7a;
+	font-size: 11px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.secheng-path {
+	padding: 4px 8px;
+	color: #999999;
+	background-color: #262626;
+	font-size: 12px;
+}
+
+.secheng-list {
+	list-style: none;
+	margin: 0;
+	padding: 4px 0;
+}
+
+.secheng-list li a {
+	display: block;
+	padding: 2px 8px;
+	color: #bbbbbb;
+	text-decoration: none;
+}
+
+.secheng-list li a:hover {
+	background-color: #d0d0d0;
+	color: #1a1a1a;
+}
+
+.secheng-list li a.active {
+	background-color: #4a4a4a;
+	color: #ffffff;
+}
+
+.secheng-footer {
+	border-top: 1px solid #333;
+	padding: 4px 8px;
+	color: #7a7a7a;
+	font-size: 11px;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	justify-content: center;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	text-align: center;
+}
+
+.projects {
+	justify-content: center;
+	text-align: center;
+}
