@@ -5,65 +5,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>GOATED</title>
-	<link rel="stylesheet" href="styles.css">
-	<style src="styles.css">
-	</style>
 </head>
 
 <body>
-	<button id="secheng-toggle" class="secheng-toggle">||</button>
-
-	<div class="secheng" id="secheng">
-		<div class="secheng-header">" Directory Listing</div>
-		<div class="secheng-path">" /</div>
-		<ul class="secheng-list">
-			<li><a href="#" data-page="home" class="dir active">home/</a></li>
-			<li><a href="#" data-page="skills" class="dir">skills/</a></li>
-		</ul>
-	</div>
-
-	<main>
-		<section id="page-home" class="page active">
-			<div class="yo">
-				<h1>Welcome</h1>
-				<p>To the most horrific website made by a random </p>
-				<br />
-				<i>for fun</i> <br />
-				<img src="pfp.jpg"></img>
-			</div>
-
-			<div class="status-card">
-				<h3 id="discord-name">Loading status...</h3>
-				<p>
-					<span id="status-dot" class="status-indicator offline"></span>
-					<span id="status-text">Checking...</span>
-				</p>
-				<p id="discord-activity" style="font-size: 0.9em; color: #b9bbbe;">No activity</p>
-			</div>
-
-			<div class="search">
-
-			</div>
-		</section>
-
-		<section id="page-skills" class="page">
-			<div class="techshit">
-				<h2>Skillz (googled once):</h2>
-				<a href="https://skillicons.dev">
-					<img
-						src="https://skillicons.dev/icons?i=c,docker,js,py,bash,git,vim,java,latex,linux" />
-				</a>
-			</div>
-			<div class="projects">
-				<h3>Things I did for the love of the game: </h3>
-				<li><a href="https://github.com/enzzzh/CoolDockerProjects"> Cool docker projects </a>
-				</li>
-				<li><a href="https://github.com/enzzzh/PomodoroAppMobile">Pomodoro app mobile </a></ul>
-				<li><a href="https://github.com/enzzzh/AuTUI"> Work in progress ig </a></ul>
-		</section>
-	</main>
-
-	<script src="script.js"></script>
+	<div id="root"></div>
+	<script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>
